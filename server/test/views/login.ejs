@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="theme-color" content="#ffffff">
+  <title>AIOZ Demonstration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-control" content="public">
+  <meta name="keywords" content="AIOZ Demonstration">
+  <meta name="description" content="AIOZ Demonstration">
+  <link rel="stylesheet" href="css/developer.min.css">
+  <link rel="stylesheet" href="css/cropper.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <link rel="icon" href="img/favicon.png" type="image/x-icon">
+
+</head>
+
+<body>
+  <header class="header-fixed">
+    <div class="header-limiter">
+      <h1><a href="/"><img class="logo" src="img/aioz.svg" width="100px" alt="logo"></a></h1>
+    </div>
+  </header>
+  <main>
+    <div id="divSpinner" class="overlay_bg" style="display: none;">
+      <div class="spinner"></div>
+    </div>
+    <div class="form">
+      <div class="form-header">
+        <h1>Sign in to your account</h1>
+        <p>to use AIOZ Demonstration</p>
+      </div>
+      <div class="form-body">
+        <form method="post" action="/login">
+          <h3>Username</h3>
+          <input type="username" name="username" placeholder="User name" autocomplete="username" required />
+          <h3>Password</h3>
+          <input type="password" name="password" placeholder="Password" autocomplete="current-password" required />
+          <div class="button-down">
+            <input type="submit" style="background-image: linear-gradient(#ffde00,#fd8e00);" value="Sign in"
+              class="login-button">
+          </div>
+          <% if (message.length > 0) { %>
+          <div class="error-page">
+            <div class="try-again">
+              <p><%= message %></p>
+            </div>
+          </div>
+          <% } %>
+        </form>
+      </div>
+    </div>
+  </main>
+  <div class="footer">
+    <div class="footer-left">
+      <p>Copyright © 2019 <a href="#">AIOZ PTE LTD</a>. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-youtube-play"></i></a>
+      <a href="#"><i class="fa fa-github"></i></a>
+    </div>
+  </div>
+  <script src="js/socket.io.js"></script>
+  <script src="js/developer.min.js"></script>
+  <script src="js/cropper.min.js"></script>
+</body>
+</html>

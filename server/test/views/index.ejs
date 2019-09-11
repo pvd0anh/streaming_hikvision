@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="#ffffff">
+    <title>AIOZ Demonstration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="keywords" content="AIOZ Demonstration">
+    <meta name="description" content="AIOZ Demonstration">
+    <link rel="stylesheet" href="css/developer.min.css">
+    <link rel="stylesheet" href="css/cropper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <header class="header-fixed">
+        <div class="header-limiter">
+            <h1><a href="/"><img class="logo" src="img/aioz.svg" width="100px" alt="logo"></a></h1>
+        </div>
+        <% if (locals.login !== "") { %>
+        <div class="logout" style="float: right;">
+            <a style="color: black;" href="/logout">Logout</a>
+        </div>
+        <% } %>
+    </header>
+    <main>
+        <div id="divSpinner" class="overlay_bg" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+        <form id="categories" name="algorithm_form" style="min-height: 100px;" action="/job"
+            method=post>
+            <div class="select-container">
+                <select id="algorithm" name="algorithm" class="select-css">
+                    <option value="Pose estimator" data-bb="0">Pose estimator</option>
+                    <option value="Counting time" data-bb="1">Counting time</option>
+                    <option value="Player tracking" data-bb="1">Player tracking</option>
+                    <option value="Draw player trajectory" data-bb="0">Draw player trajectory</option>
+                   <!-- <option value="Feet juggle counting" data-bb="0">Feet juggle counting</option> -->
+                </select>
+            </div>
+            <input id="clientID" name="clientID" type="hidden" value="">
+            <input id="dataX" name="dataX" type="hidden" value="0">
+            <input id="dataY" name="dataY" type="hidden" value="0">
+            <input id="dataWidth" name="dataWidth" type="hidden" value="0">
+            <input id="dataHeight" name="dataHeight" type="hidden" value="0">
+            <div class="submit-container">
+                <button id="btnSubmit" class="btn-upload" type="submit"><span>Process</span></button>
+            </div>
+        </form>
+        <div class="bbox-container" style="display: none;">
+            <p id="bbox-text">Capture then draw bounding box around object!</p>
+            <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" onclick="captureImage()">Capture
+                Image</button>
+            <img id="bbox-image" width="960px" style="display: block;margin: 0 auto;" />
+        </div>
+        <div class="container mt-5" style="width: 100%;text-align: center;">
+            <img id="cam" src=""></img>
+            <video width="1280" height="720" id="live" autoplay style="visibility:hidden;width:0;"></video>
+        </div>
+    </main>
+    <div class="footer">
+        <div class="footer-left">
+            <p>Copyright © 2019 <a href="#">AIOZ PTE LTD</a>. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube-play"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+        </div>
+    </div>
+    <script src="js/socket.io.js"></script>
+    <script src="js/developer.min.js"></script>
+    <script src="js/cropper.min.js"></script>
+    <script src="js/main.min.js"></script>
+</body>
+
+</html>

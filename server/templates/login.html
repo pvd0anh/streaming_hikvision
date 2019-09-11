@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}AIOZ Demonstration Sign in{% endblock %}
+{% block content %}
+<div class="form">
+  <div class="form-header">
+    <h1>Sign in to your account</h1>
+    <p>to use AIOZ Demonstration</p>
+    {% if message %}
+      <p class="existing-user">
+        <span>{{ message }}</span>
+      </p>
+    {% endif %}
+  </div>
+  <div class="form-body">
+    <form method="post" action="{{ url_for('login') }}">
+      <h3>Username</h3>
+      <input type="username" name="username" placeholder="User name" autocomplete="username" required/>
+      <h3>Password</h3>
+      <input type="password" name="password" placeholder="Password" autocomplete="current-password" required/>
+      <div class="button-down">
+        <input type="submit" style="background-image: linear-gradient(#ffde00,#fd8e00);" value="Sign in" class="login-button">
+      </div>
+      {% if error %}
+      <div class="error-page">
+        <div class="try-again">
+            <p>{{ error }}</p>
+        </div>
+      </div>
+      {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock content %}
