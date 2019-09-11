@@ -8,7 +8,7 @@ import struct
 import argparse
 
 CAMERA_USERNAME = 'admin'
-CAMERA_PASSWORD = 'aiar12345'
+CAMERA_PASSWORD = 'doanh@aioz'
 
 def main():
 
@@ -34,6 +34,11 @@ def main():
     while True:
         ret, frame = cap.read()
         if ret:
+
+            framee = cv2.resize(frame,None, fx=0.2, fy=0.2,interpolation=cv2.INTER_AREA)
+            cv2.imshow('frame',framee)
+            
+            print("cv2.imshow")
             # Serialize frame
             _, image_buffer = cv2.imencode('.jpg', frame)
             frame_data = image_buffer.tobytes()
